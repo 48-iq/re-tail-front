@@ -1,6 +1,6 @@
 <template>
   <img class="announcment-card__preview-image" 
-    :src="`${HOST}/images/${previewImageId}`" 
+    :src="`${HOST}/images/${props.previewImageId}`" 
     alt="preview image"
   >
 </template>
