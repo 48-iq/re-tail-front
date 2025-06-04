@@ -73,5 +73,10 @@ const props = defineProps<{
 .creator-link {
   color: var(--color-green);
   cursor: pointer;
+  height: 2.625rem;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  font-size: 12px;
 }
 </style>

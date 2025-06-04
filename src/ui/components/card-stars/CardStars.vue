@@ -1,13 +1,13 @@
 
 <template>
   <div v-for="i in starsList" :key="i.id" class="card-star">
-    
-  </div>
+    <Star :state="i.state" size="small"/>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue';
+import Star from '@/ui/components/star/Star.vue';
 
 const props = defineProps<{
   stars: number
