@@ -1,5 +1,5 @@
 <template>
-  <button class="category-button">Применить фильтры</button>
+  <button class="category-button"><slot/></button>
 </template>
 
 <style scoped>

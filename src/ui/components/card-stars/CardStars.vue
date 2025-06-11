@@ -7,7 +7,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import Star from '@/ui/components/star/Star.vue';
+import Star from '@/ui/components/rating-star/RatingStar.vue';
 
 const props = defineProps<{
   stars: number

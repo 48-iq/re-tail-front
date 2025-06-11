@@ -1,17 +1,14 @@
 <template>
   <div>
-    <AnnouncementCardsList
-      :announcementCards="announcementCards"  
-    />
+    <AppHeader/>
   </div>
-  <FilterButton>Применить фильтры</FilterButton>
 </template>
 
 <script setup lang="ts">
 import type { AnnouncementCardType } from '@/shared/types/announcementTypes';
 import AnnouncementCard from '@/ui/components/announcement-card/AnnouncementCard.vue';
 import AnnouncementCardsList from '@/ui/components/announcement-cards-list/AnnouncementCardsList.vue';
-import FilterButton from '@/ui/components/filter-button/FilterButton.vue';
+import AppHeader from '@/ui/widgets/header/AppHeader.vue';
 
 const announcementCards: AnnouncementCardType[] = []
 for (let i = 0; i < 20; i++) {
