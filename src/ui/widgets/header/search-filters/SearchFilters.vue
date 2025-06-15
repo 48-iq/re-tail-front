@@ -1,8 +1,6 @@
 <template>
   <div class="search-filters">
-    <div>Город:</div>
     <SelectCity :cities="cities" v-model="searchStore.filters.cityId"/>
-    <div>Категория:</div>
     <SelectCategory v-model="categoriesModel" :categories="categories"/>
     <div>Минимальная цена:</div>
     <div>Максимальная цена:</div>
@@ -77,7 +75,7 @@ const cities = [
 <style scoped>
 .search-filters {
   height: fit-content;
-  width: 11.875rem;
+  width: 13.875rem;
   border: 2px solid var(--color-blue);
   padding: 1rem;
   color: var(--color-green);

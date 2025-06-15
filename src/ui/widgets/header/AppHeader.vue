@@ -48,7 +48,7 @@ const filters = ref<FiltersType>({
 }
 
 .filters-button {
-  width: 11.875rem;
+  width: 13.875rem;
 }
 
 .header-content {

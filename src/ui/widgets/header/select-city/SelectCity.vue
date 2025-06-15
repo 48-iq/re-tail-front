@@ -1,10 +1,13 @@
 <template>
-  <div class="select-city block" @click="toggled = !toggled">
-    {{ cities.find(city => city.id === model)?.name??"Все города" }}
-    <div class="options-list" v-show="toggled">
-      <div class="option block">Выберите город:</div>
-      <div class="option active block" @click="model=null">Все города</div>
-      <div v-for="city in cities" :key="city.id" class="option active block" @click="model = city.id">{{ city.name }}</div>
+  <div class="select-city">
+    <div class="selected">
+      Город: <br> {{ cities.find(city => city.id === model)?.name || 'Все города' }}
+    </div>
+    <div class="scroll-list">
+      <div @click="model = null" class="city">Все города</div>
+      <div @click="model = city.id" class="city" v-for="city in cities" :key="city.id">
+        {{ city.name }}
+      </div>
     </div>
   </div>
 </template>
@@ -17,52 +20,38 @@ const props = defineProps<{
   cities: CityType[]
 }>()
 
-const toggled = ref<boolean>(false)
 
 const model = defineModel<string|null>()
 </script>
 
 <style scoped>
-.block {
+.select-city {
   width: 100%;
-  height: 1.625rem;
 }
-
-.option {
-  color: var(--color-green);
-  background-color: var(--color-white);
+.scroll-list {
+  height: 12.5rem;
+  overflow-y: scroll;
+  width: 100%;
+  border: 2px solid var(--color-green);
+  scrollbar-color: var(--color-green) var(--color-white);
+  scrollbar-width: thin;
+  overflow-x: hidden
+}
+.city {
+  height: 1.5rem;
   display: flex;
-  justify-content: center;
+  padding-left: 1rem;
   align-items: center;
+  color: var(--color-green);
+  cursor: pointer
 }
-
-.active {
-  cursor: pointer;
-}
-
-.active:hover {
-  background-color: var(--color-blue);
+.city:hover {
+  background-color: var(--color-green);
   color: var(--color-white);
 }
-
-.options-list {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 100%;
-  width: calc(100% + 4px);
-  left: -2px;
-  background-color: var(--color-white);
-  border: 2px solid var(--color-blue);
-}
-
-.select-city {
-  border: var(--color-blue) solid 2px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.selected {
+  height: 3rem;
   color: var(--color-green);
-  cursor: pointer;
-  position: relative;
+  cursor: pointer
 }
 </style>
